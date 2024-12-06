@@ -82,8 +82,9 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-bindsym $super+s exec "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 # Gnome Settings Key binding
+bindsym $super+s exec "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+
 # Firefox Key binding
 bindsym $super+f exec "firefox"
 
