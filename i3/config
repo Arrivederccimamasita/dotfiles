@@ -82,8 +82,10 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-# Execute Gnome Settings
 bindsym $super+s exec "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+# Gnome Settings Key binding
+# Firefox Key binding
+bindsym $super+f exec "firefox"
 
 # change focus
 bindsym $mod+h focus left
@@ -205,8 +207,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-bindsym $super+f exec "firefox"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
