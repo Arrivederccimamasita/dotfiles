@@ -42,16 +42,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # WallPaper
-
-exec --no-startup-id hsetroot -full ~/.wallpaper
+exec --no-startup-id hsetroot -cover ~/.wallpaper
 
 
 # Screen brightnes
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
-# Execute Gnome Settings
-bindsym $super+s exec "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+# Init picom Daemon for terminal transparency: Can add .config/picom/picom.conf file for extend configuration
+exec --no-startup-id picom -CGb
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -81,6 +81,9 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# Execute Gnome Settings
+bindsym $super+s exec "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
 # change focus
 bindsym $mod+h focus left
