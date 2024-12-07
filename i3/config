@@ -212,13 +212,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        font pango:DejaVu Sans Mono 14
         status_command i3status
-        mode hide
-        hidden_state hide
-        modifier Mod1
-        position top
-        workspace_min_width 24
-        padding 2px 8px 2px 8px
+        position bottom
+        workspace_min_width 10
+        padding 1px
         strip_workspace_numbers yes
 
         colors {
@@ -232,6 +230,11 @@ bar {
         inactive_workspace #141c21 #141c21 #93a1a1
         urgent_workspace #141c21 #b08500 #93a1a1
         }
+
+# Auto-Hide Bar
+#        mode hide
+#        hidden_state hide
+#        modifier Mod1
 }
 
 # colour of border, background, text, indicator, and child_border
@@ -245,7 +248,7 @@ client.background #263640
 # window rules, you can find the window class using xprop
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] floating enable
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] focus
-for_window [class=".*"] border pixel 8
+for_window [class=".*"] border pixel 1
 hide_edge_borders smart
-gaps inner 12
+gaps inner 1
 smart_gaps on
