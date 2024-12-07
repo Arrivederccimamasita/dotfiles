@@ -218,6 +218,7 @@ bar {
         workspace_min_width 10
         padding 1px
         strip_workspace_numbers yes
+        tray_output none
 
         colors {
         background #141c21
