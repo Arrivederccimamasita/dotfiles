@@ -6,10 +6,16 @@ general {
 }
 
 order += "wireless wlo1"
+order += "path_exists VPN"
 order += "volume master"
-order += "time"
 order += "battery all"
+order += "time"
 
+path_exists VPN {
+    path = "/sys/class/net/nordlynx"
+	format = "<span background='#bfbaac'> %title Connected  </span>"
+	format_down = ""
+}
 
 wireless wlo1 {
 	format_up = "<span background='#289c93'>    </span><span background='#bfbaac'>  %essid  </span>"
