@@ -2,7 +2,7 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
-  ft = "markdown",
+  ft = "*",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
   --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -19,26 +19,30 @@ return {
     workspaces = {
       {
         name = "Notes",
-        path = "~/Documents/Notes/",
+        path = "~/dev/notes",
       },
     },
+
     completion = {
       nvim_cmp = true,
       min_chars = 2,
     },
-    notes_subdir = "limbo",
-    new_notes_location = "limbo",
-    disable_formater = true,
-    attachements = {
-      img_folder = "files",
-    },
+
     templates = {
-      folder = "Templates",
+      folder = "~/dev/notes/Templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
     },
+    notes_subdir = "limbo",
+    new_notes_location = "limbo",
+    disable_formater = true,
+
+    attachements = {
+      img_folder = "files",
+    },
 
     open_notes_in = "vsplit",
+    open_app_foreground = true,
 
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
@@ -52,6 +56,7 @@ return {
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
       template = "daily-note_template.md",
     },
+
     note_id_func = function(title)
       -- If title is not given, use ISO timestamp, otherwise use as is
       local suffix = ""
@@ -64,8 +69,20 @@ return {
           suffix = suffix .. string.char(math.random(65, 90))
         end
       end
-      return suffix
+      return tostring(os.date("%Y-%m-%d")) .. "-" .. suffix
     end,
+    -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+    -- URL it will be ignored but you can customize this behavior here.
+    ---@param url string
+    follow_url_func = function(url)
+      -- Open the URL in the default web browser.
+      -- vim.fn.jobstart({"xdg-open", url})  -- linux
+      -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+      vim.ui.open(url) -- need Neovim 0.10.0+
+    end,
+
+    wiki_link_func = "use_alias_only",
+
     mappings = {
       --"Obsidian follow"
       ["<leader>of"] = {
