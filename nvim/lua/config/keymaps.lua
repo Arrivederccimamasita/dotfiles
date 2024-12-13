@@ -3,13 +3,17 @@
 -- Add any additional keymaps here
 local Util = require("lazyvim.util")
 
--- Terminal
+-- Terminal Toggle
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>ft")
 
 vim.keymap.set("n", "<leader>t", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
+
+-- Up/down Scroll
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
 -- Undo Tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -26,7 +30,7 @@ vim.keymap.set("n", "C-j", "<Cmd>NvimTmuxNavigateDown<CR>", {})
 vim.keymap.set("n", "C-k", "<Cmd>NvimTmuxNavigateUp<CR>", {})
 vim.keymap.set("n", "C-l", "<Cmd>NvimTmuxNavigateRight<CR>", {})
 
--- Obsidina Quick Note
+-- Obsidina access Note
 vim.keymap.set("n", "<leader>ont", "<Cmd>ObsidianNewFromTemplate<CR>", {})
 vim.keymap.set("n", "<leader>ond", "<Cmd>ObsidianDailies<CR>", {})
 vim.keymap.set("n", "<leader>onn", "<Cmd>ObsidianNew<CR>", {})

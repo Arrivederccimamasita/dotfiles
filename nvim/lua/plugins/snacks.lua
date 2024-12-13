@@ -10,6 +10,7 @@ return {
           relativenumber = true,
         },
         keys = {
+          q = "",
           term_normal = {
             "<leader>",
             function(self)
