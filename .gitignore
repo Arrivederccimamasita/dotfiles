@@ -32,3 +32,4 @@ ubuntu-xdg-terminals.list
 user-dirs.dirs
 user-dirs.locale
 xdg-terminals.list
+nvim/lazy-lock.json
