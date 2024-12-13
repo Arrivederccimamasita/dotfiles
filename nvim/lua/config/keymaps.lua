@@ -1,25 +1,36 @@
 --false Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-vim.keymap.set("t", "<C-w>N", [[<C-\><C-n>]], { desc = "Exit Terminal Mode to Normal Mode" })
+local Util = require("lazyvim.util")
+
+-- Terminal
+vim.keymap.del("n", "<leader>fT")
+vim.keymap.del("n", "<leader>ft")
+
+vim.keymap.set("n", "<leader>t", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root() })
+end, { desc = "Terminal (Root Dir)" })
+
+-- Undo Tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
+-- Windowns Move and Tmux integration
 vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
+vim.keymap.set("n", "<leader>_", "<C-W>s", { desc = "Split Window Below", remap = true })
 
 vim.keymap.set("n", "C-h", "<Cmd>NvimTmuxNavigateLeft<CR>", {})
 vim.keymap.set("n", "C-j", "<Cmd>NvimTmuxNavigateDown<CR>", {})
 vim.keymap.set("n", "C-k", "<Cmd>NvimTmuxNavigateUp<CR>", {})
 vim.keymap.set("n", "C-l", "<Cmd>NvimTmuxNavigateRight<CR>", {})
 
+-- Obsidina Quick Note
 vim.keymap.set("n", "<leader>ont", "<Cmd>ObsidianNewFromTemplate<CR>", {})
 vim.keymap.set("n", "<leader>ond", "<Cmd>ObsidianDailies<CR>", {})
 vim.keymap.set("n", "<leader>onn", "<Cmd>ObsidianNew<CR>", {})
 vim.keymap.set("n", "<leader>os", "<Cmd>ObsidianSearch<CR>", {})
-
-local Util = require("lazyvim.util")
 
 -- Function to check clipboard with retries
 local function getRelativeFilepath(retries, delay)

@@ -19,6 +19,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+    { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
     -- import/override with your plugins
     { import = "plugins" },
   },

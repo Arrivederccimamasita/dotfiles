@@ -4,7 +4,8 @@
 -- Set Default shell in terminal mode
 vim.opt.foldmethod = "manual"
 vim.opt.shiftwidth = 4 -- Size of an indent
-
+vim.opt.tabstop = 4 -- Size of an indent
+vim.opt.expandtab = true
 -- Search with wildcards
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
