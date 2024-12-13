@@ -216,30 +216,28 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 #    status_command ~/.cargo/bin/i3status-rs ~/.config/i3/i3status-rust.toml
 bar {
-        font pango:DejaVu Sans Mono 14
-        status_command i3status
-        position bottom
-        workspace_min_width 10
-        padding 1px
-        strip_workspace_numbers yes
-        tray_output none
+    font pango:DejaVu Sans Mono, FontAwesome 14
+    status_command i3status-rs ~/.config/i3/config.toml
+    position bottom
+    #workspace_min_width 10
+    #padding 1px
+    #strip_workspace_numbers yes
+    tray_output none
 
-        colors {
-        background #141c21
-        statusline #141c21
-        separator #141c21
-
-# colour of border, background, and text
-        focused_workspace #141c21 #d12f2c #93a1a1
-        active_workspace #141c21 #141c21 #93a1a1
-        inactive_workspace #141c21 #141c21 #93a1a1
-        urgent_workspace #141c21 #b08500 #93a1a1
-        }
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 
 # Auto-Hide Bar
-        mode hide
-        hidden_state hide
-        modifier $mod
+        #mode hide
+        #hidden_state hide
+        #modifier $mod
 }
 
 # colour of border, background, text, indicator, and child_border
